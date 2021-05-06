@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ssafy.happyhouse.hospital.dto.HospitalDto;
 
-public interface HospitalDao {
+public interface HospitalMapper {
 	public List<HospitalDto> select();
 	public List<HospitalDto> select(String addr);
 }

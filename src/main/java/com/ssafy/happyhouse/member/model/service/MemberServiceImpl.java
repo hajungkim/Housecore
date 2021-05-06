@@ -1,12 +1,12 @@
 package com.ssafy.happyhouse.member.model.service;
 
-import com.ssafy.happyhouse.member.model.dao.MemberDao;
+import com.ssafy.happyhouse.member.model.dao.MemberMapper;
 import com.ssafy.happyhouse.member.model.dao.MemberDaoImpl;
 import com.ssafy.happyhouse.member.model.dto.MemberDto;
 
 
 public class MemberServiceImpl implements MemberService {
-	private MemberDao memberDao;
+	private MemberMapper memberDao;
 	private static MemberServiceImpl memberServiceImpl;
 	
 	private MemberServiceImpl() {

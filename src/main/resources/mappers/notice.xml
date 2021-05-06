@@ -3,5 +3,37 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.notice.model.dao.NoticeMapper">
 	
+	
+	<select id="selectNoticeCount" resultType="int">
+	
+	</select>
+	
+	<select id="selectNotices" resultType="noticeDto">
+	
+	</select>
+	
+	<select id="selectNoticeByNo" parameterType="int" resultType="noticeDto">
+	
+	</select>
+	
+	<select id="selectNoticeByPageNum" parameterType="pageDto" resultType="noticeDto">
+	
+	</select>
+	
+	<insert id="insertNotice" parameterType="noticeDto">
+	
+	</insert>
+	
+	<update id="increaseViewCnt" parameterType="articleNo">
+	
+	</update>
+	
+	<update id="updateNotice" parameterType="noticeDto">
+	
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+	
+	</delete>
 
 </mapper>

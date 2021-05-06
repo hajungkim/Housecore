@@ -8,11 +8,11 @@ import com.ssafy.happyhouse.common.dto.PageDto;
 import com.ssafy.happyhouse.notice.model.dto.NoticeDto;
 
 public interface NoticeService {
-	public List<NoticeDto> selectNotice() throws SQLException;
+	public List<NoticeDto> selectNotices() throws SQLException;
 	public void insertNotice(NoticeDto noticeDto);
 	public void updateNotice(NoticeDto noticeDto);
 	public void deleteNotice(int no);
-	public NoticeDto selectNotice(int articleNo) throws SQLException;
+	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException;
 	
 	Map<String, Object> test(PageDto pageDto) throws Exception;
 }

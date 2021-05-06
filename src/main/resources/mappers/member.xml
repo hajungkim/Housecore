@@ -2,6 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.member.model.dao.MemberMapper">
+	<select id="login" parameterType="memberDto" resultType="memberDto">
+		select * 
+		  from member 
+		 where userid = #{userid} and passwd = #{passwd}
+	</select>
 	
+	<select id="selectMember" parameterType="string" resultType="memberDto">
+		 select * 
+	      from member 
+	     where userid = #{userid} 
+	</select>
+	
+	<insert id="insertMember" parameterType="memberDto">
+		insert into member (userid, passwd, userName, nickName, address, 
+		                    addressDetail, interArea, email, phone) 
+		            values (#{userid}, #{passwd}, #{username}, #{nickname}, #{address}, 
+		                    #{addressdetail}, #{interarea}, #{email}, #{phone}) 
+	</insert>
+	
+	<update id="updateMember" parameterType="memberDto">
+		update member set 
+							passwd = #{passwd}, 
+							userName = #{username}, 
+							nickName = #{nickname}, 
+							address = #{address}, 
+							addressDetail = #{addressdetail}, 
+							interArea = #{interarea}, 
+							email = #{email}, 
+							phone = #{phone} 
+					where   userid = #{userid} 
+	</update>
+	<delete id="deleteMember" parameterType="memberDto">
+		delete from member 
+		       where userid = #{userid}
+	</delete>
 
 </mapper>

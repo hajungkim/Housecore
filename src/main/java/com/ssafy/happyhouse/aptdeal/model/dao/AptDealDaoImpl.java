@@ -12,7 +12,7 @@ import com.ssafy.happyhouse.common.dto.PageDto;
 import com.ssafy.happyhouse.common.dto.SearchDto;
 import com.ssafy.happyhouse.util.DBUtil;
 
-public class AptDealDaoImpl implements AptDealDao {
+public class AptDealDaoImpl implements AptDealMapper {
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import com.ssafy.happyhouse.member.model.dto.MemberDto;
 import com.ssafy.happyhouse.util.DBUtil;
 
-public class MemberDaoImpl implements MemberDao {
+public class MemberDaoImpl implements MemberMapper {
 	private static MemberDaoImpl memberDaoImpl;
 	
 	private MemberDaoImpl() {}

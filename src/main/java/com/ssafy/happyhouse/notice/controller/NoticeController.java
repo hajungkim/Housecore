@@ -61,7 +61,7 @@ public class NoticeController extends HttpServlet{
 		int articleno = Integer.parseInt(req.getParameter("articleno"));
 		
 		try {
-			NoticeDto noticeDto = noticeService.selectNotice(articleno);
+			NoticeDto noticeDto = noticeService.selectNoticeByNo(articleno);
 			req.setAttribute("notice", noticeDto);
 			path = "/view/noticeModify.jsp";
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class NoticeController extends HttpServlet{
 		int articleno = Integer.parseInt(req.getParameter("articleno"));
 		
 		try {
-			NoticeDto noticeDto = noticeService.selectNotice(articleno);
+			NoticeDto noticeDto = noticeService.selectNoticeByNo(articleno);
 			req.setAttribute("notice", noticeDto);
 			path = "/view/noticeWatch.jsp";
 		} catch (Exception e) {

@@ -7,12 +7,12 @@ import java.util.Map;
 
 import com.ssafy.happyhouse.common.dto.PageDto;
 import com.ssafy.happyhouse.common.dto.PageResultDto;
-import com.ssafy.happyhouse.notice.model.dao.NoticeDao;
+import com.ssafy.happyhouse.notice.model.dao.NoticeMapper;
 import com.ssafy.happyhouse.notice.model.dao.NoticeDaoImpl;
 import com.ssafy.happyhouse.notice.model.dto.NoticeDto;
 
 public class NoticeServiceImpl implements NoticeService {
-	private NoticeDao noticeDao;
+	private NoticeMapper noticeDao;
 	
 	public NoticeServiceImpl() {
 		super();
@@ -20,8 +20,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<NoticeDto> selectNotice() throws SQLException {
-		return noticeDao.selectNotice();
+	public List<NoticeDto> selectNotices() throws SQLException {
+		return noticeDao.selectNotices();
 	}
 
 	@Override
@@ -40,15 +40,15 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeDto selectNotice(int articleNo) throws SQLException {
+	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException {
 		noticeDao.increaseViewCnt(articleNo);
-		return noticeDao.selectNotice(articleNo);
+		return noticeDao.selectNoticeByNo(articleNo);
 	}
 
 	@Override
 	public Map<String, Object> test(PageDto pageDto) throws Exception {
 		// 게시물 목록 데이터 조회
-		List<NoticeDto> list = noticeDao.selectNotice(pageDto);
+		List<NoticeDto> list = noticeDao.selectNoticeByPageNum(pageDto);
 		// 페이징을 위해서 게시물 전체 개수
 		int count = noticeDao.selectNoticeCount();
 		

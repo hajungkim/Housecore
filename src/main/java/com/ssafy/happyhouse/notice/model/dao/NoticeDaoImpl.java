@@ -12,7 +12,7 @@ import com.ssafy.happyhouse.notice.model.dto.NoticeDto;
 import com.ssafy.happyhouse.util.DBUtil;
 
 
-public class NoticeDaoImpl implements NoticeDao {
+public class NoticeDaoImpl implements NoticeMapper {
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -23,7 +23,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 	
 	@Override
-	public List<NoticeDto> selectNotice() throws SQLException {
+	public List<NoticeDto> selectNotices() throws SQLException {
 		List<NoticeDto> list = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -90,7 +90,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 
 	@Override
-	public NoticeDto selectNotice(int articleNo) throws SQLException {
+	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -144,7 +144,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 
 	@Override
-	public List<NoticeDto> selectNotice(PageDto pageDto) throws SQLException {
+	public List<NoticeDto> selectNoticeByPageNum(PageDto pageDto) throws SQLException {
 		List<NoticeDto> list = new ArrayList<>();
 		try (
 				Connection conn = DBUtil.getConnection();

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.ssafy.happyhouse.aptdeal.model.dao.AptDealDao;
+import com.ssafy.happyhouse.aptdeal.model.dao.AptDealMapper;
 import com.ssafy.happyhouse.aptdeal.model.dao.AptDealDaoImpl;
 import com.ssafy.happyhouse.aptdeal.model.dto.AptDealDto;
 import com.ssafy.happyhouse.common.dto.PageDto;
@@ -13,7 +13,7 @@ import com.ssafy.happyhouse.common.dto.PageResultDto;
 import com.ssafy.happyhouse.common.dto.SearchDto;
 
 public class AptDealServiceImpl implements AptDealService {
-	private AptDealDao aptDealDao;
+	private AptDealMapper aptDealDao;
 	
 	public AptDealServiceImpl() {
 		super();

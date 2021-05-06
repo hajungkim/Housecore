@@ -2,9 +2,9 @@ package com.ssafy.happyhouse.member.model.dao;
 
 import com.ssafy.happyhouse.member.model.dto.MemberDto;
 
-public interface MemberDao {
+public interface MemberMapper {
 
-	public MemberDto selectMember(String userId) throws Exception;
+	public MemberDto selectMember(String userid) throws Exception;
 	
 	public void insertMember(MemberDto memberDto) throws Exception;
 	
