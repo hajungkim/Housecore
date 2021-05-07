@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssafy.happyhouse.repository.dao.dao.MemberMapper">
-	<select id="login" parameterType="memberDto" resultType="memberDto">
+<mapper namespace="com.ssafy.happyhouse.repository.dao.MemberMapper">
+	<select id="login" parameterType="map" resultType="memberDto">
 		select * 
 		  from member 
 		 where userid = #{userid} and passwd = #{passwd}

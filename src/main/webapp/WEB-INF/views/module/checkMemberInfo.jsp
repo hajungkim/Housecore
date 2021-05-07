@@ -23,6 +23,7 @@
 			if (document.getElementById("updateEmail").value == "") {
 				alert("이메일 정보 입력!!!"); return;
 			}
+			
 			document.getElementById("updateForm").action = path + "/member?act=updateMember";
 			document.getElementById("updateForm").submit();
 			alert('회원정보가 수정되었습니다!');
