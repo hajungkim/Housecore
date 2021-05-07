@@ -77,7 +77,7 @@
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					관심지역 : <input type="text" class="form-control" id="interarea"
-						name="interarea" value="${userinfo.interarea}"required>
+						name="interarea" value="${userinfo.interarea}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					이메일 : <input type="text" class="form-control" id="email"
