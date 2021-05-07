@@ -29,7 +29,7 @@
 <title>게시판 메인 화면</title>
 <script type="text/javascript">
 	function movenoticewrite() {
-		location.href = "${root}/notice?act=mvnoticewrite";
+		location.href = "${root}/notice/write";
 	}
 </script>
 </head>
