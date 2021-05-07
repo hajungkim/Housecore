@@ -56,7 +56,7 @@
 				</div>
 				<div id="div2" style="font-size: 20px;">
 					비밀번호 : <input type="password" class="form-control" id="passwd"
-						name="passwd" required>
+						name="passwd" value="${userinfo.passwd}" required>
 				</div>
 				<div id="div3" style="font-size: 20px;">
 					이름 : <input type="text" class="form-control" id="username"
@@ -65,27 +65,27 @@
 				</div>
 				<div id="div4" style="font-size: 20px;">
 					닉네임 : <input type="text" class="form-control" id="nickname"
-						name="nickname" required>
+						name="nickname" value="${userinfo.nickname}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					주소 : <input type="text" class="form-control" id="address"
-						name="address" required>
+						name="address" value="${userinfo.address}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					상세주소 : <input type="text" class="form-control"
-						id="addressdetail" name="addressdetail" required>
+						id="addressdetail" name="addressdetail" value="${userinfo.addressdetail}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					관심지역 : <input type="text" class="form-control" id="interarea"
-						name="interarea" required>
+						name="interarea" value="${userinfo.interarea}"required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					이메일 : <input type="text" class="form-control" id="email"
-						name="email" required>
+						name="email" value="${userinfo.email}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					전화번호 : <input type="text" class="form-control" id="phone"
-						name="phone" required>
+						name="phone" value="${userinfo.phone}" required>
 				</div>
 				<br>
 				<button type="button" class="btn btn-primary" onclick="update();">수정</button>

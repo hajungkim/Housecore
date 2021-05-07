@@ -78,6 +78,7 @@ public class MemberController {
 	
 	@PostMapping(value = "/update")
 	public String update(MemberDto memberDto, Model model) {
+		System.out.println(memberDto);
 		try {
 			System.out.println(memberDto.getUserid());
 			memberService.updateMember(memberDto);
