@@ -17,20 +17,14 @@ import com.ssafy.happyhouse.repository.dto.SearchDto;
 public class AptDealServiceImpl implements AptDealService {
 	
 	@Autowired
-	private AptDealMapper aptDealDao;
-	
-	public AptDealServiceImpl() {
-		super();
-		this.aptDealDao = new AptDealDaoImpl();
-	}
+	private AptDealMapper aptDealMapper;
 
 	@Override
 	public Map<String, Object> selectAptDeal(PageDto pageDto) throws SQLException {
 		Map<String, Object> map = new HashMap<>();
-		map.put("list", aptDealDao.selectAptDeal(pageDto));
+		map.put("list", aptDealMapper.selectAptDeal(pageDto));
 		
-		int count = aptDealDao.selectAptCount();
-		//System.out.println("0카운트 갯수 : " + count);
+		int count = aptDealMapper.selectAptCount();
 		PageResultDto prd = new PageResultDto(pageDto.getPageNo(), count, pageDto.getListSize());
 		map.put("pageResult", prd);
 		return map;
@@ -39,16 +33,18 @@ public class AptDealServiceImpl implements AptDealService {
 	@Override
 	public Map<String, Object> selectAptDealBySearch(SearchDto searchDto, PageDto pageDto) throws SQLException {
 		// 동 코드로 동이름 가져오기
-		String dongName = aptDealDao.selectDongName(searchDto.getDongcode());
+		String dongName = aptDealMapper.selectDongName(searchDto.getDongcode());
+		
+		if (dongName == null) return null;	// 검색한 동이름이 DB에 없을 경우
+		
 		searchDto.setDongname(dongName);
 		searchDto.setPageNo(pageDto.getPageNo());
-		// 동 이름으로 검색
+		// 동이름으로 검색
 		Map<String, Object> map = new HashMap<>();
-		map.put("list", aptDealDao.selectAptDealBySearch(searchDto));
+		map.put("list", aptDealMapper.selectAptDealBySearch(searchDto));
 		
 		// 게시물 전체 갯수
-		int count = aptDealDao.selectAptCountBySearch(searchDto);
-		//System.out.println("1카운트 갯수 : " + count);
+		int count = aptDealMapper.selectAptCountBySearch(searchDto);
 		PageResultDto prd = new PageResultDto(pageDto.getPageNo(), count, pageDto.getListSize());
 		
 		map.put("pageResult", prd);

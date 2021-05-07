@@ -44,6 +44,13 @@
       <h2>실거래 정보</h2>
       <div class="mb-3" style="border-bottom: 2px solid rgb(233, 232, 232);"></div>
     </div>
+    
+    <c:if test="${empty result.list}">
+    	<div class="container" style="height:300px;">
+	    	<h2>검색결과가 없습니다.</h2>
+    	</div>
+    </c:if>
+    
     <c:set var="loopFlag" value="false" />
     <c:forEach var="aptDeal"  items="${result.list}" varStatus="loop">
         			<c:if test="${loop.index % 3 == 0}"><div class="card-deck"></c:if>

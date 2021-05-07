@@ -38,7 +38,7 @@
         <div class="row mt-5">
             <div class="col-md-4"></div>
            <div class="col-md-4">
-        	<button class="btn btn-outline-success w-100 h-100" onclick="sample4_execDaumPostcode()">동 검색</button>
+        	<button class="btn btn-outline-success w-100 h-100" onclick="searchDaum();">동 검색</button>
       		</div>
         </div>
     </div>
@@ -114,8 +114,8 @@
 
    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-    function sample4_execDaumPostcode() {
-    	let str = "${root}/aptDeal?act=searchbylist&dongcode=";
+    function searchDaum() {
+    	let str = "${root}/aptDeal/";
         new daum.Postcode({
             oncomplete: function(data) {
                 location.href = str + data.bcode;
@@ -123,9 +123,6 @@
         }).open();
     }
     
-    function changeNumber() {
-    	console.log("찍힘");
-    }
 	</script>
 
     <!-- footer -->
