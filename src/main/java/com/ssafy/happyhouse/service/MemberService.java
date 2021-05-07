@@ -1,6 +1,8 @@
 package com.ssafy.happyhouse.service;
 
 
+import java.util.Map;
+
 import com.ssafy.happyhouse.repository.dto.MemberDto;
 
 public interface MemberService {
@@ -13,5 +15,5 @@ public interface MemberService {
 	
 	public void deleteMember(MemberDto memberDto) throws Exception;
 	
-	public MemberDto login(MemberDto memberDto) throws Exception;
+	MemberDto login(Map<String, String> map) throws Exception;
 }

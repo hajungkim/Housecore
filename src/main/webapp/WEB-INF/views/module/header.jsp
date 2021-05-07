@@ -4,18 +4,17 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	var path = "${pageContext.request.contextPath}";
 	function deleteMember() {
 		if (confirm("정말로 탈퇴하시겠습니까?")) {
-			location.href = path + "/member?act=deleteMember";
+			location.href = "${root}/member/delete";
 		}
 	}
 	function logout() {
-		location.href = path + "/member?act=logout";
+		location.href = "${root}/member/logout";
 	}
 	function selectMember() {
 		$.ajax({
-			url : path + "/member",
+			url : "${root}/member",
 			data : "act=selectMember",
 			dataType : "json",
 			success : function(member) {
@@ -50,6 +49,7 @@
 		            data-toggle="modal" data-target="#myModal">로그인</a>
 		  </c:when>
 		  <c:otherwise>
+		  			<p>${userinfo.username}님 안녕하세요</p>
 		  		  <a class="float-right mr-2" style="font-size:20px; color:black; font-weight: bold;" id="toplogin"
 		            data-toggle="modal"  data-target="#searchModal" onclick="selectMember();">회원정보수정</a>
 		          <a class="admin float-right mr-2" style="font-size:20px; color:black; font-weight: bold;"

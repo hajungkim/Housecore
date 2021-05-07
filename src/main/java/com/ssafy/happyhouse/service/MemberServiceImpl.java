@@ -1,46 +1,44 @@
 package com.ssafy.happyhouse.service;
 
-import com.ssafy.happyhouse.repository.dao.MemberDaoImpl;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ssafy.happyhouse.repository.dao.MemberMapper;
 import com.ssafy.happyhouse.repository.dto.MemberDto;
 
-
+@Service
 public class MemberServiceImpl implements MemberService {
-	private MemberMapper memberDao;
-	private static MemberServiceImpl memberServiceImpl;
 	
-	private MemberServiceImpl() {
-		memberDao = MemberDaoImpl.getMemberDaoImpl();
-	}
-	
-	public static MemberServiceImpl getMemberServiceImpl() {
-		if (memberServiceImpl == null)
-			memberServiceImpl = new MemberServiceImpl();
-		return memberServiceImpl;
-	}
+	@Autowired
+	private MemberMapper memberMapper;
 	
 	@Override
 	public MemberDto selectMember(String userId) throws Exception {
-		return memberDao.selectMember(userId);
+		return memberMapper.selectMember(userId);
 	}
 
 	@Override
 	public void insertMember(MemberDto memberDto) throws Exception {
-		memberDao.insertMember(memberDto);
+		memberMapper.insertMember(memberDto);
 	}
 
 	@Override
 	public void updateMember(MemberDto memberDto) throws Exception {
-		memberDao.updateMember(memberDto);
+		memberMapper.updateMember(memberDto);
 	}
 
 	@Override
 	public void deleteMember(MemberDto memberDto) throws Exception {
-		memberDao.deleteMember(memberDto);
+		memberMapper.updateMember(memberDto);
 	}
 
 	@Override
-	public MemberDto login(MemberDto memberDto) throws Exception {
-		return memberDao.login(memberDto);
+	public MemberDto login(Map<String, String> map) throws Exception {
+		if (map.get("userid") == null || map.get("passwd") == null) {
+			return null;
+		}
+		return memberMapper.login(map);
 	}
 }
