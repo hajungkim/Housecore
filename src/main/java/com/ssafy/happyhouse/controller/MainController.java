@@ -8,13 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/main")
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class MainController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String act = req.getParameter("act");
-		
 		if("mvIntroduce".equals(act)) {
 			resp.sendRedirect(req.getContextPath() + "/view/introduce.jsp");
 		} else if("mvNoticeList".equals(act)) {
@@ -31,6 +33,19 @@ public class MainController extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		doGet(req,resp);
 	}
-
 	
+	@GetMapping("/introduce")
+	public String introduce() {
+		return "introduce";
+	}
+
+	@GetMapping("/neighbor")
+	public String neighborInfo() {
+		return "neighborInfo";
+	}
+	
+	@GetMapping("/environment")
+	public String environmentInfo() {
+		return "environmentinfo";
+	}
 }

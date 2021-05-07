@@ -41,7 +41,7 @@
   z-index: 999;">
     <div class="row">
       <div class="col-sm-12 mt-4">
-        <div class="container"> <a href="${root}/view/index.jsp" id="main-title">Happy House</a>
+        <div class="container"> <a href="${root}" id="main-title">Happy House</a>
         <c:choose>
        	  <c:when test="${empty userinfo}">
 		          <a class="float-right mr-2" style="font-size:20px; color:black; font-weight: bold;" id="topsignup"
@@ -72,10 +72,10 @@
       <!-- 상단 navigator -->
       <nav class="navbar navbar-expand-sm" style="margin: 0 auto;">
         <div class="container">
-          <a class="nav-link" href="${root}/main?act=mvIntroduce" style="color: #28a745">소개</a>
-          <a class="nav-link" href="${root}/main?act=mvNoticeList">공지사항</a>
-          <a class="nav-link" href="${root}/main?act=mvNeighborInfo">동네 업종정보</a>
-          <a class="nav-link" href="${root}/main?act=mvEnvironmentInfo">대기오염 정보</a>
+          <a class="nav-link" href="${root}/introduce" style="color: #28a745">소개</a>
+          <a class="nav-link" href="${root}/notice">공지사항</a>
+          <a class="nav-link" href="${root}/neighbor">동네 업종정보</a>
+          <a class="nav-link" href="${root}/environment">대기오염 정보</a>
         </div>
       </nav>
     </div>

@@ -12,12 +12,12 @@
 		select * from notice 
 				 order by articleNo desc 
 	</select>
-	
+	           
 	<select id="selectNoticeByNo" parameterType="int" resultType="noticeDto">
 		select * from notice 
 				where articleNo = #{articleNo} 
 	</select>
-	
+	             
 	<select id="selectNoticeByPageNum" parameterType="pageDto" resultType="noticeDto">
 		select * from notice 
 		         order by articleNo desc 

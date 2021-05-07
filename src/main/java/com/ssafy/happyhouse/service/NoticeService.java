@@ -13,7 +13,6 @@ public interface NoticeService {
 	public void updateNotice(NoticeDto noticeDto);
 	public void deleteNotice(int no);
 	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException;
-	
-	Map<String, Object> test(PageDto pageDto) throws Exception;
+	public Map<String, Object> selectNoticeByPageNum(PageDto pageDto) throws Exception;
 }
 

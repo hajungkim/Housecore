@@ -25,6 +25,7 @@ public class PageDto {
 
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
+		beginNo = listSize * (pageNo - 1);
 	}
 
 	public int getListSize() {
@@ -33,6 +34,7 @@ public class PageDto {
 
 	public void setListSize(int listSize) {
 		this.listSize = listSize;
+		beginNo = listSize * (pageNo - 1);
 	}
 	public int getBegin() {
 		return listSize * (pageNo - 1);

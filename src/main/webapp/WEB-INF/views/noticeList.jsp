@@ -67,7 +67,7 @@
 						<tr>
 							<td>${(pr.pageNo -1) * 10 + loop.count}</td>
 							<td id="title"><a
-								href="${root}/notice?act=mvnoticewatch&articleno=${notice.articleno}">${notice.subject}</a></td>
+								href="${root}/notice/${notice.articleno}">${notice.subject}</a></td>
 							<td>${notice.userid}</td>
 							<td>${notice.regtime}</td>
 							<td>${notice.viewcnt}</td>
@@ -86,7 +86,7 @@
 		</table>
 
 		<c:if test="${pr.count != 0}">
-			<c:import url="/view/module/page.jsp" />
+			<c:import url="module/page.jsp" />
 		</c:if>
 		
 		
