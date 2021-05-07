@@ -73,7 +73,7 @@
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					상세주소 : <input type="text" class="form-control"
-						id="addressdetail" value="${userinfo.addressdetail}" name="addressdetail" required>
+						id="addressdetail" name="addressdetail" value="${userinfo.addressdetail}" required>
 				</div>
 				<div id="div5" style="font-size: 20px;">
 					관심지역 : <input type="text" class="form-control" id="interarea"

@@ -15,6 +15,13 @@
 	function selectMember() {
 		location.href = "${root}/member/select";
 	}
+	function changeFocus(target) {
+		
+		const url = ['introduce','notice','neighbor','environment','interest'];
+		
+		//for (let i = 0; i < url)
+		
+	}
 </script>
 <!-- 상단 nav top -->
   <div class="container-fluid shadow" style=" background-color: white;
@@ -61,6 +68,7 @@
           <a class="nav-link" href="${root}/notice">공지사항</a>
           <a class="nav-link" href="${root}/neighbor">동네 업종정보</a>
           <a class="nav-link" href="${root}/environment">대기오염 정보</a>
+          <a class="nav-link" href="${root}/interest">관심지역</a>
         </div>
       </nav>
     </div>

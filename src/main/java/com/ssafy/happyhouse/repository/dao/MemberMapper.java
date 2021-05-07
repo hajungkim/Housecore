@@ -16,4 +16,5 @@ public MemberDto selectMember(String userid) throws SQLException;
 	public void deleteMember(MemberDto memberDto) throws SQLException;
 	
 	public MemberDto login(Map<String, String> map) throws SQLException;
+	
 }
