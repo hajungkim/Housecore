@@ -3,7 +3,7 @@ package com.ssafy.happyhouse.repository.dto;
 public class PageDto {
 	private int pageNo; // 현재 페이지
 	private int listSize; // 보여줄 사이즈
-	
+	private int beginNo;
 
 	public PageDto() {
 		this(1, 10);
@@ -16,6 +16,7 @@ public class PageDto {
 	public PageDto(int pageNo, int listSize) {
 		this.pageNo = pageNo;
 		this.listSize = listSize;
+		this.beginNo = listSize * (pageNo - 1);
 	}
 
 	public int getPageNo() {
@@ -34,6 +35,6 @@ public class PageDto {
 		this.listSize = listSize;
 	}
 	public int getBegin() {
-		return listSize * (pageNo - 1);
+		return beginNo;
 	}
 }
