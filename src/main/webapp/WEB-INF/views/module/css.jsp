@@ -1,0 +1,146 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<style>
+.img1{
+    width:100%;
+    height:500px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.img1::after{
+    width:100%;
+    height:500px;
+    content: "";
+    background-image: url(${root}/res/img/house.jpg);
+    background-size: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity: 40%;
+    z-index: -1;
+}
+
+.img2{
+    width:100%;
+    height:100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.img2::after{
+    width:100%;
+    height:100%;
+    content: "";
+    background-image: url(${root}/res/img/h2.jpg);
+    background-size: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    /* opacity: 80%; */
+    z-index: -1;
+    border-radius: 30px;
+}
+
+.img3{
+    width:100%;
+    height:100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.img3::after{
+    width:100%;
+    height:100%;
+    content: "";
+    background-image: url(${root}/res/img/h3.jpg);
+    background-size: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    /* opacity: 80%; */
+    z-index: -1;
+    border-radius: 30px;
+}
+
+.img4{
+    width:100%;
+    height:100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.img4::after{
+    width:100%;
+    height:100%;
+    content: "";
+    background-image: url(${root}/res/img/h4.jpg);
+    background-size: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    /* opacity: 80%; */
+    z-index: -1;
+    border-radius: 30px;
+}
+
+#main-title {
+    text-decoration:none; 
+    color:#28a745; 
+    font-size: 30px;
+}
+.container > .nav-link {
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.container > .nav-link:hover {
+    color:#28a745; 
+}
+
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12 {
+    padding: 4px;
+}
+
+.environ-info {
+    border: 1px solid #28a745;
+    border-radius: 15px;
+    width: 100%;
+
+    
+    max-height: 410px;
+    overflow:auto;
+}
+
+.shop-card {
+    font-size: 18px;
+    margin: 10px;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    
+}
+.shop-card:first-child {
+    margin-top: 20px;
+}
+.shop-card:hover {
+    background-color: #28a745;
+    color : white;
+    transition: 0.8s;
+}
+.row > .col-sm-10 {
+    text-align: right;
+}
+</style>

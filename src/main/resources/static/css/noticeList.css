@@ -1,0 +1,13 @@
+h2 > span {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#title {
+    font-weight: bold;
+}
+
+tr {
+    font-size: 18px;
+    cursor: pointer;
+}
