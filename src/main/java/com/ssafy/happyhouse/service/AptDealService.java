@@ -10,5 +10,5 @@ import com.ssafy.happyhouse.repository.dto.SearchDto;
 
 public interface AptDealService {
 	public Map<String, Object> selectAptDeal(PageDto pageDto) throws SQLException;
-	public Map<String, Object> selectAptDeal(SearchDto searchDto, PageDto pageDto) throws SQLException;
+	public Map<String, Object> selectAptDealBySearch(SearchDto searchDto, PageDto pageDto) throws SQLException;
 }

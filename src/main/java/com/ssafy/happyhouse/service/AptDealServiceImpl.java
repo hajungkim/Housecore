@@ -33,17 +33,17 @@ public class AptDealServiceImpl implements AptDealService {
 	}
 
 	@Override
-	public Map<String, Object> selectAptDeal(SearchDto searchDto, PageDto pageDto) throws SQLException {
+	public Map<String, Object> selectAptDealBySearch(SearchDto searchDto, PageDto pageDto) throws SQLException {
 		// 동 코드로 동이름 가져오기
 		String dongName = aptDealDao.selectDongName(searchDto.getDongcode());
 		searchDto.setDongname(dongName);
 		searchDto.setPageNo(pageDto.getPageNo());
 		// 동 이름으로 검색
 		Map<String, Object> map = new HashMap<>();
-		map.put("list", aptDealDao.selectAptDeal(searchDto));
+		map.put("list", aptDealDao.selectAptDealBySearch(searchDto));
 		
 		// 게시물 전체 갯수
-		int count = aptDealDao.selectAptCount(searchDto);
+		int count = aptDealDao.selectAptCountBySearch(searchDto);
 		//System.out.println("1카운트 갯수 : " + count);
 		PageResultDto prd = new PageResultDto(pageDto.getPageNo(), count, pageDto.getListSize());
 		

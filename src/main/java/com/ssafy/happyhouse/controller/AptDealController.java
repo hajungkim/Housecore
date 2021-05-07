@@ -62,7 +62,7 @@ public class AptDealController extends HttpServlet {
 		searchDto.setPageNo(pageNo);
 		
 		try {
-			req.setAttribute("result", aptDealService.selectAptDeal(searchDto, pageDto));
+			req.setAttribute("result", aptDealService.selectAptDealBySearch(searchDto, pageDto));
 			req.setAttribute("dongcode", dongcode);
 
 			req.getRequestDispatcher("/view/boardResult.jsp").forward(req, resp);;

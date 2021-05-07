@@ -67,7 +67,7 @@ public class AptDealDaoImpl implements AptDealMapper {
 	}
 
 	@Override
-	public List<AptDealDto> selectAptDeal(SearchDto searchDto) throws SQLException {
+	public List<AptDealDto> selectAptDealBySearch(SearchDto searchDto) throws SQLException {
 		List<AptDealDto> list = new ArrayList<AptDealDto>();
 
 		Connection conn = null;
@@ -181,7 +181,7 @@ public class AptDealDaoImpl implements AptDealMapper {
 		}
 	}
 	@Override
-	public int selectAptCount(SearchDto searchDto) throws SQLException {
+	public int selectAptCountBySearch(SearchDto searchDto) throws SQLException {
 		try (Connection conn = DBUtil.getConnection();
 				PreparedStatement pstmt = conn
 						.prepareStatement("SELECT " + "	COUNT(*) " + "FROM " + " housedeal a where dong = ?");) {
