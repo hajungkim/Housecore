@@ -5,35 +5,56 @@
 	
 	
 	<select id="selectNoticeCount" resultType="int">
-	
+		select count(*) from notice 
 	</select>
 	
 	<select id="selectNotices" resultType="noticeDto">
-	
+		select * from notice 
+				 order by articleNo desc 
 	</select>
 	
 	<select id="selectNoticeByNo" parameterType="int" resultType="noticeDto">
-	
+		select * from notice 
+				where articleNo = #{articleNo} 
 	</select>
 	
 	<select id="selectNoticeByPageNum" parameterType="pageDto" resultType="noticeDto">
-	
+		select * from notice 
+		         order by articleNo desc 
+		         limit #{beginNo}, #{listSize} 
 	</select>
 	
 	<insert id="insertNotice" parameterType="noticeDto">
-	
+		insert into notice (
+						subject, 
+						userid, 
+						viewCnt, 
+						content
+					)
+					values (
+						#{subject}, 
+						#{userid},
+						#{viewcnt},
+						#{content}
+					)
 	</insert>
 	
-	<update id="increaseViewCnt" parameterType="articleNo">
-	
+	<update id="increaseViewCnt" parameterType="int">
+		update notice set 
+		                viewCnt = viewCnt + 1 
+		 			  where articleNo = #{articleNo}
 	</update>
 	
 	<update id="updateNotice" parameterType="noticeDto">
-	
+		update notice set 
+						subject = #{subject},  
+						content = #{content} 
+						where articleNo = #{articleno} 
 	</update>
 	
 	<delete id="deleteNotice" parameterType="int">
-	
+		delete from notice 
+		      where articleNo = #{no} 
 	</delete>
 
 </mapper>

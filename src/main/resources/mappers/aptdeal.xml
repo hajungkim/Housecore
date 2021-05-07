@@ -3,5 +3,49 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.repository.dao.AptDealMapper">
 	
-
+	<select id="selectAptDeal" parameterType="pageDto" resultType="aptDealDto">
+		select *  
+		  from housedeal 
+		  order by no desc 
+		  limit #{beginNo}, 9 <!-- listSize -->
+		  
+		  <!-- pageDto beginNo 설정 에러 날 수도 있음 -->
+		  <!-- pageDto에 setter로 pageNo or listSize 변경하는 부분 있는지 체크 -->
+	</select>
+	
+	<select id="selectAptDealBySearch" parameterType="searchDto" resultType="aptDealDto">
+		<choose>
+			<when test='#{dongname} != null'>
+				select * 
+		 		  from housedeal 
+		  		 where dong = #{} 
+		  		 order by no desc 
+		  		 limit #{beginNo}, 9 <!-- listSize -->  
+			</when>
+			<otherwise>
+				select * 
+				  from housedeal 
+				  order by no desc 
+				  limit #{beginNo}, 9 <!-- listSize -->  
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectDongName" parameterType="string" resultType="string">
+		select dong 
+		  from dongcode 
+		 where dongcode = #{dongcode} 
+	</select>
+	
+	<select id="selectAptCount" resultType="int">
+		select count(*)
+		  from housedeal 
+	</select>
+	
+	<select id="selectAptCountBySearch" parameterType="searchDto" resultType="int">
+		select count(*) 
+		  from housedeal 
+		 where dong = #{dongname}
+	</select>
+ 	
 </mapper>
