@@ -4,7 +4,7 @@ public class PageDto {
 	private int pageNo; // 현재 페이지
 	private int listSize; // 보여줄 사이즈
 	private int beginNo;
-
+	
 	public PageDto() {
 		this(1, 10);
 	}
@@ -35,6 +35,6 @@ public class PageDto {
 		this.listSize = listSize;
 	}
 	public int getBegin() {
-		return beginNo;
+		return listSize * (pageNo - 1);
 	}
 }
