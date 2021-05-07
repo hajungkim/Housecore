@@ -18,10 +18,11 @@
     <title>게시판 메인 화면</title>
     <script type="text/javascript">
 	  function mvnoticemodify() {
-			location.href="${root}/notice?act=mvnoticemodify&articleno=${notice.articleno}";
+			location.href="${root}/notice/updateForm/${notice.articleno}";
+			
 		}
 	  function noticedelete() {
-			location.href="${root}/notice?act=delete&articleno=${notice.articleno}";
+			location.href="${root}/notice/delete/${notice.articleno}";
 		}
 	  </script>
 </head>

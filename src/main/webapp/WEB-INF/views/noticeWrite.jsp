@@ -25,7 +25,7 @@
 			alert("내용 입력!!!!");
 			return;
 		} else {
-		  	document.getElementById("writeform").action = "${root}/notice";
+		  	document.getElementById("writeform").action = "${root}/notice/regist";
 		  	document.getElementById("writeform").submit();
 		}
 	  }
@@ -41,7 +41,6 @@
     <div align="center">
     <div class="col-lg-6" align="center">
 		<form id="writeform" method="post" action="">
-		<input type="hidden" name="act" id="act" value="write">
 			<div class="form-group" align="left">
 				<label for="subject">제목:</label>
 				<input type="text" class="form-control" id="subject" name="subject">

@@ -28,11 +28,11 @@
 					<div class="modal-body">
                     <div class="form-group">
                         <label for="loginid">User ID (* 20자 이내)</label>
-                        <input type="text" class="form-control"  id="userid" name="userid" required>
+                        <input type="text" class="form-control"  id="userid" name="userid" value="ssafy" required>
                     </div>
                     <div class="form-group">
                         <label for="loginid">Password (* 20자 이내)</label>
-                        <input type="password" class="form-control"  id="passwd" name="passwd"
+                        <input type="password" class="form-control"  id="passwd" name="passwd" value="ssafy" 
                             required>
                     </div>
                 </div>

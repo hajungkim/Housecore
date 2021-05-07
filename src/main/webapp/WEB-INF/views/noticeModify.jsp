@@ -25,7 +25,7 @@
 			alert("내용을 입력하세요");
 			return;
 		} else {
-		  	document.getElementById("modifyform").action = "${root}/notice";
+		  	document.getElementById("modifyform").action = "${root}/notice/update/${notice.articleno}";
 		  	document.getElementById("modifyform").submit();
 		}
 	  }

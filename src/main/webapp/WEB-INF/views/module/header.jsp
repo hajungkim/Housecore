@@ -40,7 +40,7 @@
   z-index: 999;">
     <div class="row">
       <div class="col-sm-12 mt-4">
-        <div class="container"> <a href="${root}" id="main-title">Happy House</a>
+        <div class="container"> <a href="${root}/" id="main-title">Happy House</a>
         <c:choose>
        	  <c:when test="${empty userinfo}">
 		          <a class="float-right mr-2" style="font-size:20px; color:black; font-weight: bold;" id="topsignup"
@@ -49,7 +49,7 @@
 		            data-toggle="modal" data-target="#myModal">로그인</a>
 		  </c:when>
 		  <c:otherwise>
-		  			<p>${userinfo.username}님 안녕하세요</p>
+		  			<!-- <p>${userinfo.username}님 안녕하세요</p> -->
 		  		  <a class="float-right mr-2" style="font-size:20px; color:black; font-weight: bold;" id="toplogin"
 		            data-toggle="modal"  data-target="#searchModal" onclick="selectMember();">회원정보수정</a>
 		          <a class="admin float-right mr-2" style="font-size:20px; color:black; font-weight: bold;"
