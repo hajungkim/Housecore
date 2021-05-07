@@ -12,28 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController extends HttpServlet{
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String act = req.getParameter("act");
-		if("mvIntroduce".equals(act)) {
-			resp.sendRedirect(req.getContextPath() + "/view/introduce.jsp");
-		} else if("mvNoticeList".equals(act)) {
-			resp.sendRedirect(req.getContextPath() + "/notice?act=mvnoticelist");
-		} else if("mvNeighborInfo".equals(act)) {
-			resp.sendRedirect(req.getContextPath() + "/view/neighborInfo.jsp");
-		}  else if("mvEnvironmentInfo".equals(act)) {
-			resp.sendRedirect(req.getContextPath() + "/view/environmentinfo.jsp");
-		} 
-	}
+public class MainController {
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		doGet(req,resp);
-	}
-	
 	@GetMapping("/introduce")
 	public String introduce() {
 		return "introduce";
@@ -47,5 +27,10 @@ public class MainController extends HttpServlet{
 	@GetMapping("/environment")
 	public String environmentInfo() {
 		return "environmentinfo";
+	}
+	
+	@GetMapping("/interest")
+	public String ineterestArea() {
+		return "interestArea";
 	}
 }
