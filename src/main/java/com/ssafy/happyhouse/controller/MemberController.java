@@ -61,7 +61,7 @@ public class MemberController {
 	
 	@GetMapping(value = "/select")
 	public String select() {
-		return "";
+		return "memberUpdate";
 	}
 	
 	@PostMapping(value = "/insert")
@@ -79,6 +79,7 @@ public class MemberController {
 	@PostMapping(value = "/update")
 	public String update(MemberDto memberDto, Model model) {
 		try {
+			System.out.println(memberDto.getUserid());
 			memberService.updateMember(memberDto);
 			return "index";
 		} catch (Exception e) {

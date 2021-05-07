@@ -13,22 +13,7 @@
 		location.href = "${root}/member/logout";
 	}
 	function selectMember() {
-		$.ajax({
-			url : "${root}/member",
-			data : "act=selectMember",
-			dataType : "json",
-			success : function(member) {
-				$("#updatePwd").val(member.passwd);
-				$("#updateAddr").val(member.address);
-				$("#updateNickname").val(member.nickname);
-				$("#updateAddrDetail").val(member.addressdetail);
-				$("#updateInterArea").val(member.interarea);
-				$("#updateEmail").val(member.email);
-				$("#updatePhone").val(member.phone);
-				$("#updateUserId").val(member.userid);
-				$("#updateUsername").val(member.username);
-			}
-		})
+		location.href = "${root}/member/select";
 	}
 </script>
 <!-- 상단 nav top -->
@@ -49,9 +34,8 @@
 		            data-toggle="modal" data-target="#myModal">로그인</a>
 		  </c:when>
 		  <c:otherwise>
-		  			<p>${userinfo.username}님 안녕하세요</p>
 		  		  <a class="float-right mr-2" style="font-size:20px; color:black; font-weight: bold;" id="toplogin"
-		            data-toggle="modal"  data-target="#searchModal" onclick="selectMember();">회원정보수정</a>
+		             onclick="selectMember();">회원정보수정</a>
 		          <a class="admin float-right mr-2" style="font-size:20px; color:black; font-weight: bold;"
 		            onclick="deleteMember();">회원탈퇴</a>
 		          <a class="admin float-right mr-2" style="font-size:20px; color:black; font-weight: bold;"
