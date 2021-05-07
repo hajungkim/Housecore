@@ -89,10 +89,10 @@
 
     <!-- 중단 main-->
     <div class="container" style="height:500px;">
-        <div onclick="location.href='${root}/aptDeal?act=list'" class="img2 float-left mt-5 mr-3 ml-5"
+        <div onclick="location.href='${root}/aptDeal'" class="img2 float-left mt-5 mr-3 ml-5"
             style="width:300px; height:300px; cursor: pointer;">
             <div style="width:100%; height:80%;"></div>
-            <button type="button" onclick="location.href='${root}/aptDeal?act=list'" class="btn btn-light"
+            <button type="button" onclick="location.href='${root}/aptDeal'" class="btn btn-light"
                 style="width:80%;">실거래 검색 보기</button>
         </div>
         <div onclick="location.href='https\://news.naver.com/main/list.nhn?mode=LS2D&mid=shm&sid1=101&sid2=260'"

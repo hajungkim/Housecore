@@ -2,54 +2,45 @@ package com.ssafy.happyhouse.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ssafy.happyhouse.repository.dto.AptDealDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.ssafy.happyhouse.repository.dto.PageDto;
 import com.ssafy.happyhouse.repository.dto.SearchDto;
 import com.ssafy.happyhouse.service.AptDealService;
-import com.ssafy.happyhouse.service.AptDealServiceImpl;
 
-@WebServlet("/aptDeal")
-public class AptDealController extends HttpServlet {
+@Controller()
+@RequestMapping("/aptDeal")
+public class AptDealController {
 	
+	@Autowired
 	private AptDealService aptDealService;
 	
-	public void init() throws ServletException {
-		super.init();
-		aptDealService = new AptDealServiceImpl();
-	}
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		req.setCharacterEncoding("utf-8");
-		doGet(req, resp);
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String act = req.getParameter("act");
-		if("list".equals(act)) {
-			//System.out.println(req.getParameter("dongcode"));
-			if(req.getParameter("dongcode") == null)
-				showList(req, resp);
-			else
-				searchedList(req,resp);
-		} else if( "searchbylist".equals(act)) {
-			//System.out.println(req.getParameter("dongcode"));
-			if(req.getParameter("dongcode") == "")
-				showList(req, resp);
-			else
-				searchedList(req,resp);
+	@GetMapping("")
+	public String list(@RequestParam(defaultValue = "1") int pageNo, Model model ) {
+		PageDto pageDto = new PageDto();
+		pageDto.setPageNo(pageNo);
+		try {
+			model.addAttribute("result", aptDealService.selectAptDeal(pageDto));
+			model.addAttribute("dongcode", "");
+			return "boardResult";
+		} catch (SQLException e) {
+			return "index";
 		}
 	}
-
+	
+	// 이 아래에서 부터는 새로 짜는게 나을듯
+	
 	private void searchedList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String dongcode = req.getParameter("dongcode");
 		PageDto pageDto = new PageDto();
@@ -87,6 +78,4 @@ public class AptDealController extends HttpServlet {
 		}
 		
 	}
-
-	
 }

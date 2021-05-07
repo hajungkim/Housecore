@@ -57,7 +57,6 @@
 			        </div>
 			      	</div>
     			<c:if test="${loop.index % 3 == 2 || loop.last}"></div></c:if>
-
     </c:forEach>     
    </div>
     
@@ -74,7 +73,10 @@
       </li>
 	      <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
 	      	<c:if test="${i != pr.pageNo}">
-	      		<li class="page-item"><a class="page-link" href="${root}/aptDeal?act=searchbylist&dongcode=${dongcode}&pageNo=${i}">${i}</a></li>
+	      		<li class="page-item">
+	      			<!--   <a class="page-link" href="${root}/aptDeal?act=searchbylist&dongcode=${dongcode}&pageNo=${i}">${i}</a> -->
+	      			<a class="page-link" href="${root}/aptDeal?pageNo=${i}&dongcode=${dongcode}">${i}</a>
+	      		</li>
 	      	</c:if>
 	      	<c:if test="${i == pr.pageNo}">
 	      		<li class="page-item active">

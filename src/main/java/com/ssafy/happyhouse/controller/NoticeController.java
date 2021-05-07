@@ -25,17 +25,11 @@ import com.ssafy.happyhouse.service.NoticeService;
 
 @Controller
 @RequestMapping("/notice")
-public class NoticeController extends HttpServlet{
+public class NoticeController{
 	
 	@Autowired
 	private NoticeService noticeService;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		doGet(req, resp);
-	}
-	
 	@GetMapping("")
 	public String noticeList(@RequestParam(defaultValue = "1") int pageNo,  Model model) throws Exception {
 		PageDto pageDto = new PageDto();
