@@ -77,10 +77,10 @@ public class MemberController {
 	}
 	
 	@PostMapping(value = "/update")
-	public String update(MemberDto memberDto, Model model) {
+	public String update(MemberDto memberDto, Model model, HttpSession session) {
 		try {
-			System.out.println(memberDto.getUserid());
 			memberService.updateMember(memberDto);
+			session.setAttribute("userinfo", memberDto);
 			return "index";
 		} catch (Exception e) {
 			e.printStackTrace();
