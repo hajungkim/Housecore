@@ -30,7 +30,7 @@ public class MainController {
 	}
 	
 	@GetMapping("/interest")
-	public String ineterestArea() {
+	public String interestArea() {
 		return "interestArea";
 	}
 }

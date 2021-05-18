@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.repository.dao.QnAMapper">
+	
+	
+	<select id="selectQnAs" resultType="qnADto">
+		select * from qna 
+	</select>
+	
+	<select id="selectQnA" parameterType="string" resultType="qnADto">
+		select * from qna where customerid = #{userId}
+	</select>
+	
+	<select id="selectOneQnA" parameterType="int" resultType="qnADto">
+		select * from qna where no = #{no};
+	</select>
+	
+	<insert id="insertQnA" parameterType="qnaDto">
+		insert into qna (
+						customerid, 
+						content, 
+						adminid,
+						category,
+						title
+					)
+					values (
+						#{customerId}, 
+						#{content},
+						#{adminId},
+						#{category},
+						#{title}
+					)
+	</insert>
+	
+	<update id="updateQnA" parameterType="qnaDto">
+		update qna set 
+				 	  	title = #{title},  
+				   		content = #{content},
+				   		category = #{category} 
+				   where no = #{no} 
+	</update>
+	
+	<delete id="deleteQnA" parameterType="int">
+		delete from qna 
+		      where no = #{no} 
+	</delete>
+
+</mapper>
