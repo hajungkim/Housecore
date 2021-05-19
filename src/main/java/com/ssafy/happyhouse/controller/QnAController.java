@@ -41,17 +41,25 @@ public class QnAController {
 	}
 	
 	@PostMapping // create
-	public void writeQnA(@RequestBody QnADto qnaDto) {
-		qnaService.insertQnA(qnaDto);
+	public ResponseEntity<String> writeQnA(@RequestBody QnADto qnaDto) {
+		System.out.println(qnaDto);
+		if (qnaService.insertQnA(qnaDto))
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		return new ResponseEntity<String>("FAIL", HttpStatus.NO_CONTENT);
 	}
 	
 	@PutMapping("{no}") // update
-	public void updateQnA(@RequestBody QnADto qnaDto) {
-		qnaService.updateQnA(qnaDto);
+	public ResponseEntity<String> updateQnA(@RequestBody QnADto qnaDto) {
+		if(qnaService.updateQnA(qnaDto))
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		return new ResponseEntity<String>("FAIL", HttpStatus.NO_CONTENT);
 	}
 	
 	@DeleteMapping("{no}") // delete
-	public void deleteQnA(@PathVariable int no) {
-		qnaService.deleteQnA(no);
+	public ResponseEntity<String> deleteQnA(@PathVariable int no) {
+		if(qnaService.deleteQnA(no))
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		return new ResponseEntity<String>("FAIL", HttpStatus.NO_CONTENT);
+			
 	}
 }

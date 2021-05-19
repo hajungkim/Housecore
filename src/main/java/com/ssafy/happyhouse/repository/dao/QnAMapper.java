@@ -11,7 +11,7 @@ public interface QnAMapper {
 	List<QnADto> selectQnAs() throws SQLException;
 	List<QnADto> selectQnA(String userId) throws SQLException;
 	QnADto selectOneQnA(int no) throws SQLException;
-	int insertQnA(QnADto qnaDto);
-	int updateQnA(QnADto qnaDto);
-	void deleteQnA(int no);
+	boolean insertQnA(QnADto qnaDto);
+	boolean updateQnA(QnADto qnaDto);
+	boolean deleteQnA(int no);
 }
