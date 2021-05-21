@@ -1,62 +1,31 @@
 package com.ssafy.happyhouse.controller;
 
 import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.ssafy.happyhouse.repository.dto.PageDto;
-import com.ssafy.happyhouse.repository.dto.SearchDto;
+import com.ssafy.happyhouse.repository.dto.AptDealDto;
 import com.ssafy.happyhouse.service.AptDealService;
 
-@Controller
-@RequestMapping("/aptDeal")
+@CrossOrigin(origins = { "*" }, maxAge = 6000)
+@RestController
+@RequestMapping("/aptdeal")
 public class AptDealController {
 	
 	@Autowired
 	private AptDealService aptDealService;
 	
-	// {dongcode}
-	// @PathVariable String dongcode,
-	@GetMapping("")
-	public String list(@RequestParam(defaultValue = "1") int pageNo, Model model ) {
-		PageDto pageDto = new PageDto();
-		pageDto.setPageNo(pageNo);
-		
-		SearchDto searchDto = new SearchDto();
-		//searchDto.setDongcode(dongcode);
-		searchDto.setPageNo(pageNo);
-		
-		try {
-			model.addAttribute("result", aptDealService.selectAptDeal(pageDto));
-			//model.addAttribute("dongcode", dongcode);
-			model.addAttribute("dongcode", "");
-			return "boardResult";
-		} catch (SQLException e) {
-			return "index";
-		}
+	@GetMapping("{no}")
+	public ResponseEntity<List<AptDealDto>> aptDealList(@PathVariable("no") int no) throws SQLException {
+		return new ResponseEntity<List<AptDealDto>>(aptDealService.selectAptDeal(no), HttpStatus.OK);
 	}
 	
-	@GetMapping("{dongcode}")
-	public String list(@PathVariable String dongcode, @RequestParam(defaultValue = "1") int pageNo, Model model ) {
-		PageDto pageDto = new PageDto();
-		pageDto.setPageNo(pageNo);
-		
-		SearchDto searchDto = new SearchDto();
-		searchDto.setDongcode(dongcode);
-		searchDto.setPageNo(pageNo);
-		
-		try {
-			model.addAttribute("result", aptDealService.selectAptDeal(pageDto));
-			model.addAttribute("dongcode", dongcode);
-			model.addAttribute("dongcode", "");
-			return "boardResult";
-		} catch (SQLException e) {
-			return "index";
-		}
-	}
 }
