@@ -11,28 +11,24 @@
 	<select id="selectMember" parameterType="string" resultType="memberDto">
 		 select * 
 	      from member 
-	     where userid = #{userid} 
+	     where userid = #{userid}
 	</select>
 	
 	<insert id="insertMember" parameterType="memberDto">
-		insert into member (userid, passwd, userName, nickName, address, 
-		                    addressDetail, interArea, email, phone) 
-		            values (#{userid}, #{passwd}, #{username}, #{nickname}, #{address}, 
-		                    #{addressdetail}, #{interarea}, #{email}, #{phone}) 
+		insert into member (userid, passwd, userName, nickName, interArea, email) 
+		            values (#{userid}, #{passwd}, #{username}, #{nickname}, #{interarea}, #{email}) 
 	</insert>
 	
 	<update id="updateMember" parameterType="memberDto">
 		update member set 
 							passwd = #{passwd}, 
 							userName = #{username}, 
-							nickName = #{nickname}, 
-							address = #{address}, 
-							addressDetail = #{addressdetail}, 
+							nickName = #{nickname},
 							interArea = #{interarea}, 
-							email = #{email}, 
-							phone = #{phone} 
+							email = #{email},
 					where   userid = #{userid} 
 	</update>
+	
 	<delete id="deleteMember" parameterType="memberDto">
 		delete from member 
 		       where userid = #{userid}
