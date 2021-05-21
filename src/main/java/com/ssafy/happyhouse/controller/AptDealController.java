@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ssafy.happyhouse.repository.dto.AptDealDto;
 import com.ssafy.happyhouse.service.AptDealService;
 
+import io.swagger.annotations.ApiOperation;
+
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController
 @RequestMapping("/aptdeal")
@@ -23,6 +25,7 @@ public class AptDealController {
 	@Autowired
 	private AptDealService aptDealService;
 	
+	@ApiOperation(value = "no값에 따라 deal리스트 반환", response = List.class)
 	@GetMapping("{no}")
 	public ResponseEntity<List<AptDealDto>> aptDealList(@PathVariable("no") int no) throws SQLException {
 		return new ResponseEntity<List<AptDealDto>>(aptDealService.selectAptDeal(no), HttpStatus.OK);

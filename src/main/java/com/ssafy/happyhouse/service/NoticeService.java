@@ -15,4 +15,3 @@ public interface NoticeService {
 	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException;
 	public Map<String, Object> selectNoticeByPageNum(PageDto pageDto) throws Exception;
 }
-

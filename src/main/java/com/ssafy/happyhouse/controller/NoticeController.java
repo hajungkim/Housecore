@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ssafy.happyhouse.repository.dto.NoticeDto;
 import com.ssafy.happyhouse.service.NoticeService;
 
+import io.swagger.annotations.ApiOperation;
+
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController
 @RequestMapping("/notice")
@@ -29,32 +31,37 @@ public class NoticeController{
 	@Autowired
 	private NoticeService noticeService;
 
-	@GetMapping  // 모든목록
+	@ApiOperation(value = "모든 리스트 반환", response = List.class)
+	@GetMapping
 	public ResponseEntity<List<NoticeDto>> noticeList() throws SQLException {
-		System.out.println("ok");
 		return new ResponseEntity<List<NoticeDto>>(noticeService.selectNotices(), HttpStatus.OK);
 	}
 	
-	@GetMapping("{articleno}")  // 글자세히
-	public ResponseEntity<NoticeDto> noticeDetail(@PathVariable("articleno") int articleno, Model model) throws SQLException {
+	@ApiOperation(value = "리스트 자세히 보기", response = List.class)
+	@GetMapping("{articleno}")
+	public ResponseEntity<NoticeDto> noticeDetail(@PathVariable("articleno") int articleno) throws SQLException {
 		return new ResponseEntity<NoticeDto>(noticeService.selectNoticeByNo(articleno), HttpStatus.OK);
 	}
 	
-	@PostMapping  // 글쓰기
+	@ApiOperation(value = "리스트 자세히 보기")
+	@PostMapping
 	public void regist(@RequestBody NoticeDto noticeDto) {
 		noticeService.insertNotice(noticeDto);
 	}
 	
+	@ApiOperation(value = "수정하기")
 	@PutMapping("{articleno}")  // 수정
 	private void noticeUpdate(@RequestBody NoticeDto noticeDto) throws IOException {
 		noticeService.updateNotice(noticeDto);
 	}
 	
+	@ApiOperation(value = "삭제하기")
 	@DeleteMapping("{articleno}")  // 삭제
 	public void noticeDelete(@PathVariable("articleno") int articleno) {
 		noticeService.deleteNotice(articleno);
 	}
 	
+	@ApiOperation(value = "이거뭐지?", response = String.class)
 	@GetMapping("updateForm/{articleno}")  // 이거뭐지..?
 	public String noticeUpdate(@PathVariable("articleno") int articleno, Model model) {
 		try {
