@@ -7,14 +7,14 @@ import com.ssafy.happyhouse.repository.dto.MemberDto;
 
 public interface MemberMapper {
 
-public MemberDto selectMember(String userid) throws SQLException;
+	MemberDto selectMember(String userid) throws SQLException;
 	
-	public void insertMember(MemberDto memberDto) throws SQLException;
+	void insertMember(MemberDto memberDto) throws SQLException;
 	
-	public void updateMember(MemberDto memberDto) throws SQLException;
+	void updateMember(MemberDto memberDto) throws SQLException;
 	
-	public void deleteMember(MemberDto memberDto) throws SQLException;
+	void deleteMember(MemberDto memberDto) throws SQLException;
 	
-	public MemberDto login(Map<String, String> map) throws SQLException;
+	MemberDto login(Map<String, String> map) throws SQLException;
 	
 }
