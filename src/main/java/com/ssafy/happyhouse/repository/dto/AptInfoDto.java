@@ -2,6 +2,7 @@ package com.ssafy.happyhouse.repository.dto;
 
 public class AptInfoDto {
 	private int no;
+	private String dong;
 	private String AptName;
 	private String lat;
 	private String lng;
@@ -12,6 +13,12 @@ public class AptInfoDto {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public String getDong() {
+		return dong;
+	}
+	public void setDong(String dong) {
+		this.dong = dong;
 	}
 	public String getAptName() {
 		return AptName;
