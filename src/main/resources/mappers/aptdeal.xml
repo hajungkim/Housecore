@@ -3,7 +3,16 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.repository.dao.AptDealMapper">
 	<select id="selectAptDeal" parameterType="Integer" resultType="aptDealDto">
-		select *
+		select 
+			dong, 
+			replace(replace(dealAmount,' ',''),',','') as 'dealAmount', 
+			buildYear, 
+			dealYear, 
+			dealMonth, 
+			area, 
+			floor, 
+			jibun, 
+			dealday   
 		from housedeal
 		where (AptName, dong) in (
 				select AptName, dong

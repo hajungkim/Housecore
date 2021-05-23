@@ -1,10 +1,7 @@
 package com.ssafy.happyhouse.repository.dto;
 
 public class AptDealDto {
-	private int no;
 	private String dong;
-	private String AptName;
-	private String code;
 	private String dealAmount;
 	private String buildYear;
 	private String dealYear;
@@ -13,31 +10,11 @@ public class AptDealDto {
 	private String area;
 	private String floor;
 	private String jibun;
-	private String type;
-	private String rentMoney;
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
 	public String getDong() {
 		return dong;
 	}
 	public void setDong(String dong) {
 		this.dong = dong;
-	}
-	public String getAptName() {
-		return AptName;
-	}
-	public void setAptName(String aptName) {
-		AptName = aptName;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
 	}
 	public String getDealAmount() {
 		return dealAmount;
@@ -86,17 +63,5 @@ public class AptDealDto {
 	}
 	public void setJibun(String jibun) {
 		this.jibun = jibun;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getRentMoney() {
-		return rentMoney;
-	}
-	public void setRentMoney(String rentMoney) {
-		this.rentMoney = rentMoney;
 	}
 }

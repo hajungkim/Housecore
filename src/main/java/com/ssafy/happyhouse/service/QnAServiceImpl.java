@@ -31,19 +31,18 @@ public class QnAServiceImpl implements QnAService{
 	}
 
 	@Override
-	public void insertQnA(QnADto qnaDto) {
-		qnaMapper.insertQnA(qnaDto);
+	public boolean insertQnA(QnADto qnaDto) {
+		return qnaMapper.insertQnA(qnaDto);
 	}
 
 	@Override
-	public void updateQnA(QnADto qnaDto) {
-		System.out.println("dsdsasddsadsdsa");
-		qnaMapper.updateQnA(qnaDto);
+	public boolean updateQnA(QnADto qnaDto) {
+		return qnaMapper.updateQnA(qnaDto);
 	}
 
 	@Override
-	public void deleteQnA(int no) {
-		qnaMapper.deleteQnA(no);
+	public boolean deleteQnA(int no) {
+		return qnaMapper.deleteQnA(no);
 	}
 
 	

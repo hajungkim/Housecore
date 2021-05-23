@@ -75,5 +75,13 @@ public class QnADto {
 	public void setRegistTime(Timestamp registTime) {
 		this.registTime = registTime;
 	}
+
+	@Override
+	public String toString() {
+		return "QnADto [no=" + no + ", customerId=" + customerId + ", content=" + content + ", adminId=" + adminId
+				+ ", category=" + category + ", title=" + title + ", registTime=" + registTime + "]";
+	}
+	
+	
 	
 }

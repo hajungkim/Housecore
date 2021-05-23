@@ -8,7 +8,7 @@ public interface QnAService {
 	List<QnADto> selectQnAs() throws SQLException;
 	List<QnADto> selectQnA(String userId) throws SQLException;
 	QnADto selectOneQnA(int no) throws SQLException;
-	void insertQnA(QnADto qnaDto);
-	void updateQnA(QnADto qnaDto);
-	void deleteQnA(int no);
+	boolean insertQnA(QnADto qnaDto);
+	boolean updateQnA(QnADto qnaDto);
+	boolean deleteQnA(int no);
 }
