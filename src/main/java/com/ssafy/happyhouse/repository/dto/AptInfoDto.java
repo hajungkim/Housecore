@@ -9,6 +9,8 @@ public class AptInfoDto {
 	private String jibun;
 	private String lat;
 	private String lng;
+	private String gugun;
+	private String score;
 	public int getNo() {
 		return no;
 	}
@@ -56,6 +58,18 @@ public class AptInfoDto {
 	}
 	public void setLng(String lng) {
 		this.lng = lng;
+	}
+	public String getGugun() {
+		return gugun;
+	}
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
 	}
 	
 }

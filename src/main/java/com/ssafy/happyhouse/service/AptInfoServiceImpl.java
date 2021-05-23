@@ -11,7 +11,7 @@ import com.ssafy.happyhouse.repository.dto.AptInfoDto;
 
 @Service
 public class AptInfoServiceImpl implements AptInfoService {
-	
+
 	@Autowired
 	private AptInfoMapper aptInfoMapper;
 
