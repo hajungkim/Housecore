@@ -4,7 +4,7 @@
 <mapper namespace="com.ssafy.happyhouse.repository.dao.AptInfoMapper">
 	
 	<select id="selectAptInfo" resultType="aptInfoDto">
-		select no, dong, aptname, lat, lng
+		select no, dong, aptname, lat, lng, gugun ,score
 		from houseinfo
 	</select>
 
