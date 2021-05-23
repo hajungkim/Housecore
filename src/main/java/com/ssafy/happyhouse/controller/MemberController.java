@@ -48,8 +48,15 @@ public class MemberController {
 	
 	@ApiOperation(value = "회원정보 삭제(탈퇴)")
 	@GetMapping(value = "/delete")
-	public void delete(MemberDto memberDto, Model model) throws Exception {
+	public void delete(MemberDto memberDto) throws Exception {
 		memberService.deleteMember(memberDto);
+	}
+	
+	/*테스트*/
+	@GetMapping(value = "/test")
+	public void test() throws Exception {
+		MemberDto m = new MemberDto("ttt","1234","박싸피","쌒","금천구","@");
+		memberService.insertMember(m);
 	}
 
 }

@@ -43,7 +43,7 @@ public class NoticeController{
 		return new ResponseEntity<NoticeDto>(noticeService.selectNoticeByNo(articleno), HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "리스트 자세히 보기")
+	@ApiOperation(value = "글 등록하기")
 	@PostMapping
 	public void regist(@RequestBody NoticeDto noticeDto) {
 		noticeService.insertNotice(noticeDto);
@@ -59,19 +59,6 @@ public class NoticeController{
 	@DeleteMapping("{articleno}")  // 삭제
 	public void noticeDelete(@PathVariable("articleno") int articleno) {
 		noticeService.deleteNotice(articleno);
-	}
-	
-	@ApiOperation(value = "이거뭐지?", response = String.class)
-	@GetMapping("updateForm/{articleno}")  // 이거뭐지..?
-	public String noticeUpdate(@PathVariable("articleno") int articleno, Model model) {
-		try {
-			NoticeDto noticeDto = noticeService.selectNoticeByNo(articleno);
-			model.addAttribute("notice", noticeDto);
-			return "noticeModify";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "index";
-		}
 	}
 	
 }

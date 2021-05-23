@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.service;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import com.ssafy.happyhouse.repository.dto.MemberDto;
 
 @Service
 public class MemberServiceImpl implements MemberService {
+	
 	
 	@Autowired
 	private MemberMapper memberMapper;
