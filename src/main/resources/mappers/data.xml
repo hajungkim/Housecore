@@ -2,80 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.repository.dao.DataMapper">
-	<select id="selectMac" resultType="macDto">
-		select *
-		from macdonald
-	</select>
-	
-	<insert id="insertMacInfo" parameterType="macInfoDto">
-		insert into mac_info (no, branch, lng, lat, dis, gu, dong)
-				values (#{no}, #{branch}, #{lng}, #{lat}, #{dis}, #{gu}, #{dong})
-	</insert>
-	
-	<select id="selectStar" resultType="starDto">
-		select *
-		from starbucks
-	</select>
-	<insert id="insertStarInfo" parameterType="starInfoDto">
-		insert into star_info (no, branch, lng, lat, dis, gu, dong)
-				values (#{no}, #{branch}, #{lng}, #{lat}, #{dis}, #{gu}, #{dong})
-	</insert>
 
-	<select id="selectStation" resultType="stationDto">
-		select *
-		from station
-	</select>
-	<insert id="insertStationInfo" parameterType="stationInfoDto">
-		insert into station_info (no, line, name, lat, lng, dis, gu, dong)
-				values (#{no}, #{line}, #{name}, #{lat}, #{lng}, #{dis}, #{gu}, #{dong})
-	</insert>
-	
-	<select id="selectMacInfo" resultType="macInfoDto">
+	<select id="selectMacInfo" parameterType="int" resultType="macInfoDto">
 		select *
 		from mac_info
+		where no = #{no}
 	</select>
 	
-	<select id="selectStarInfo" resultType="starInfoDto">
+	<select id="selectStarInfo" parameterType="int" resultType="starInfoDto">
 		select *
 		from star_info
+		where no = #{no}
 	</select>
 	
-	<select id="selectStationInfo" resultType="stationInfoDto">
+	<select id="selectStationInfo" parameterType="int" resultType="stationInfoDto">
 		select *
 		from station_info
+		where no = #{no}
 	</select>
-	
-	<select id="selectGugun" resultType="guDto">
-		select name
-		from guguncode
-	</select>
-	<insert id="insertGugunScore" parameterType="guScoreDto">
-		insert into gugun_score (gugun, staravg, starmin, starmax, macavg, macmin, macmax, stavg, stmin, stmax)
-				values (#{gugun}, #{staravg}, #{starmin}, #{starmax}, #{macavg}, #{macmin}, #{macmax}, #{stavg}, #{stmin}, #{stmax})
-	</insert>
-
-	<select id="selectDong" resultType="dongDto">
-		select name, dongcode
-		from dongcode
-	</select>
-	<insert id="insertDongScore" parameterType="dongScoreDto">
-		insert into dong_score (dongcode, dong, staravg, starmin, starmax, macavg, macmin, macmax, stavg, stmin, stmax)
-				values (#{dongcode}, #{dong}, #{staravg}, #{starmin}, #{starmax}, #{macavg}, #{macmin}, #{macmax}, #{stavg}, #{stmin}, #{stmax})
-	</insert>
 	
 	<select id="selectGugunScore" resultType="guScoreDto">
 		select *
 		from gugun_score
 	</select>
+	
 	<select id="selectDongScore" resultType="dongScoreDto">
 		select *
 		from dong_score
 	</select>
-	<update id="updateAptInfoScore" parameterType="scoreDto">
-		update houseinfo
-		set score = #{score}
-		where no = #{no}
-	</update>
-	
 	
 </mapper>
