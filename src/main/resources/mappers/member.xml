@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.happyhouse.repository.dao.MemberMapper">
-	<select id="login" parameterType="map" resultType="memberDto">
+
+	<select id="login" parameterType="memberDto" resultType="memberDto">
 		select * 
 		  from member 
 		 where userid = #{userid} and passwd = #{passwd}
@@ -15,16 +16,15 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="memberDto">
-		insert into member (userid, passwd, userName, nickName, interArea, email) 
-		            values (#{userid}, #{passwd}, #{username}, #{nickname}, #{interarea}, #{email}) 
+		insert into member (userid, passwd, username, nickname, email) 
+		            values (#{userid}, #{passwd}, #{username}, #{nickname}, #{email}) 
 	</insert>
 	
 	<update id="updateMember" parameterType="memberDto">
 		update member set 
 							passwd = #{passwd}, 
-							userName = #{username}, 
-							nickName = #{nickname},
-							interArea = #{interarea}, 
+							username = #{username}, 
+							nickname = #{nickname},
 							email = #{email},
 					where   userid = #{userid} 
 	</update>
