@@ -8,6 +8,14 @@ public class AptInfoDto {
 	private String lng;
 	private String gugun;
 	private String score;
+	private String area;
+	
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	public int getNo() {
 		return no;
 	}

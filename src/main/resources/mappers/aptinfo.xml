@@ -4,8 +4,14 @@
 <mapper namespace="com.ssafy.happyhouse.repository.dao.AptInfoMapper">
 	
 	<select id="selectAptInfo" resultType="aptInfoDto">
+		<!--  
 		select no, dong, aptname, lat, lng, gugun ,score
 		from houseinfo
+		 -->
+		SELECT hi.no, hi.dong, hi.aptname, hi.lat, hi.lng, hi.gugun, hi.score, substring_index((avg(hd.area) / 3.305785), '.', 1) as 'area' -- distinct count(*)
+		FROM houseinfo hi
+		join housedeal hd on hi.aptname = hd.aptname and hi.dong = hd.dong
+		group by hi.no 
 	</select>
 
 </mapper>
