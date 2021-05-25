@@ -6,6 +6,8 @@ import java.util.Map;
 import com.ssafy.happyhouse.repository.dto.MemberDto;
 
 public interface MemberMapper {
+	
+	MemberDto login(MemberDto memberDto) throws SQLException;
 
 	MemberDto selectMember(String userid) throws SQLException;
 	
@@ -14,7 +16,5 @@ public interface MemberMapper {
 	void updateMember(MemberDto memberDto) throws SQLException;
 	
 	void deleteMember(MemberDto memberDto) throws SQLException;
-	
-	MemberDto login(Map<String, String> map) throws SQLException;
 	
 }

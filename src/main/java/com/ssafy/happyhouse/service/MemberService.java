@@ -15,5 +15,5 @@ public interface MemberService {
 	
 	public void deleteMember(MemberDto memberDto) throws Exception;
 	
-	MemberDto login(Map<String, String> map) throws Exception;
+	MemberDto login(MemberDto memberDto) throws Exception;
 }

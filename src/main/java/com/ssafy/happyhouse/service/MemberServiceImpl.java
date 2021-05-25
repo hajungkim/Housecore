@@ -1,8 +1,5 @@
 package com.ssafy.happyhouse.service;
 
-import java.sql.SQLException;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,10 +34,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberDto login(Map<String, String> map) throws Exception {
-		if (map.get("userid") == null || map.get("passwd") == null) {
+	public MemberDto login(MemberDto memberDto) throws Exception {
+		if (memberDto.getUserid() == null || memberDto.getPasswd() == null) {
 			return null;
 		}
-		return memberMapper.login(map);
+		return memberMapper.login(memberDto);
 	}
 }
