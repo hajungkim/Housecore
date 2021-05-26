@@ -21,12 +21,12 @@
 	</insert>
 	
 	<update id="updateMember" parameterType="memberDto">
-		update member set 
-							passwd = #{passwd}, 
-							username = #{username}, 
-							nickname = #{nickname},
-							email = #{email},
-					where   userid = #{userid} 
+		update member 
+		set passwd = #{passwd}, 
+			username = #{username}, 
+			nickname = #{nickname},
+			email = #{email}
+		where   userid = #{userid}
 	</update>
 	
 	<delete id="deleteMember" parameterType="memberDto">

@@ -40,9 +40,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException {
-		noticeMapper.increaseViewCnt(articleNo);
-		return noticeMapper.selectNoticeByNo(articleNo);
+	public NoticeDto selectNoticeByNo(int no) throws SQLException {
+		return noticeMapper.selectNoticeByNo(no);
 	}
 
 	@Override				   

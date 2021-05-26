@@ -9,13 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.happyhouse.repository.dto.MemberDto;
+import com.ssafy.happyhouse.repository.dto.NoticeDto;
 import com.ssafy.happyhouse.service.JwtService;
 import com.ssafy.happyhouse.service.MemberService;
 
@@ -56,6 +59,12 @@ public class MemberController {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
+	}
+	
+	@ApiOperation(value = "아이디로 회원정보 가져오기")
+	@GetMapping("{userId}")
+	public ResponseEntity<MemberDto> select(@PathVariable("userId") String userId) throws Exception {
+		return new ResponseEntity<MemberDto>(memberService.selectMember(userId), HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "회원가입시 멤버 추가")

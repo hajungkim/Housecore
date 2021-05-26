@@ -24,7 +24,7 @@ public class HappyHouseSpringBootApplication implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
-                .addPathPatterns("/member/**") // 기본 적용 경로
+                .addPathPatterns("") // 기본 적용 경로
                 .excludePathPatterns(
                 		Arrays.asList("/member/login", "/member/insert")
                 ); // 적용 제외 경로

@@ -38,9 +38,9 @@ public class NoticeController{
 	}
 	
 	@ApiOperation(value = "리스트 자세히 보기", response = List.class)
-	@GetMapping("{articleno}")
-	public ResponseEntity<NoticeDto> noticeDetail(@PathVariable("articleno") int articleno) throws SQLException {
-		return new ResponseEntity<NoticeDto>(noticeService.selectNoticeByNo(articleno), HttpStatus.OK);
+	@GetMapping("{no}")
+	public ResponseEntity<NoticeDto> noticeDetail(@PathVariable("no") int no) throws SQLException {
+		return new ResponseEntity<NoticeDto>(noticeService.selectNoticeByNo(no), HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "글 등록하기")
@@ -50,15 +50,15 @@ public class NoticeController{
 	}
 	
 	@ApiOperation(value = "수정하기")
-	@PutMapping("{articleno}")  // 수정
+	@PutMapping
 	private void noticeUpdate(@RequestBody NoticeDto noticeDto) throws IOException {
 		noticeService.updateNotice(noticeDto);
 	}
 	
 	@ApiOperation(value = "삭제하기")
-	@DeleteMapping("{articleno}")  // 삭제
-	public void noticeDelete(@PathVariable("articleno") int articleno) {
-		noticeService.deleteNotice(articleno);
+	@DeleteMapping("{no}")
+	public void noticeDelete(@PathVariable("no") int no) {
+		noticeService.deleteNotice(no);
 	}
 	
 }

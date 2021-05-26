@@ -9,7 +9,7 @@ import com.ssafy.happyhouse.repository.dto.PageDto;
 public interface NoticeMapper {
 	int selectNoticeCount() throws SQLException;
 	List<NoticeDto> selectNotices() throws SQLException;
-	NoticeDto selectNoticeByNo(int articleNo) throws SQLException; // 번호로 조회
+	NoticeDto selectNoticeByNo(int no) throws SQLException; // 번호로 조회
 	List<NoticeDto> selectNoticeByPageNum(PageDto pageDto) throws SQLException;
 	void increaseViewCnt(int articleNo) throws SQLException; // 조회수 증가
 	void insertNotice(NoticeDto noticeDto);

@@ -12,6 +12,6 @@ public interface NoticeService {
 	public void insertNotice(NoticeDto noticeDto);
 	public void updateNotice(NoticeDto noticeDto);
 	public void deleteNotice(int no);
-	public NoticeDto selectNoticeByNo(int articleNo) throws SQLException;
+	public NoticeDto selectNoticeByNo(int no) throws SQLException;
 	public Map<String, Object> selectNoticeByPageNum(PageDto pageDto) throws Exception;
 }
