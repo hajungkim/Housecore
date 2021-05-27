@@ -8,7 +8,9 @@ public class QnADto {
 	private String content;
 	private String adminId;
 	private String category;
+	
 	private String title;
+	private String answer;
 	private Timestamp registTime;
 	
 	public QnADto(String customerId, String content, String adminId, String category, String title) {
@@ -20,6 +22,15 @@ public class QnADto {
 		this.title = title;
 	}
 
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	
 	public int getNo() {
 		return no;
 	}
