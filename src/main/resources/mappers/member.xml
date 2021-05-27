@@ -9,6 +9,11 @@
 		 where userid = #{userid} and passwd = #{passwd}
 	</select>
 	
+	<select id="selectAllMember" resultType="memberDto">
+		 select * 
+	      from member
+	</select>
+
 	<select id="selectMember" parameterType="string" resultType="memberDto">
 		 select * 
 	      from member 
@@ -29,7 +34,7 @@
 		where   userid = #{userid}
 	</update>
 	
-	<delete id="deleteMember" parameterType="memberDto">
+	<delete id="deleteMember" parameterType="string">
 		delete from member 
 		       where userid = #{userid}
 	</delete>

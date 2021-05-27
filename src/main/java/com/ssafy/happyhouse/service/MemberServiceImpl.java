@@ -1,5 +1,8 @@
 package com.ssafy.happyhouse.service;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,11 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	private MemberMapper memberMapper;
+	
+	@Override
+	public List<MemberDto> selectAllMember() throws SQLException {
+		return memberMapper.selectAllMember();
+	}
 	
 	@Override
 	public MemberDto selectMember(String userId) throws Exception {
@@ -29,8 +37,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void deleteMember(MemberDto memberDto) throws Exception {
-		memberMapper.updateMember(memberDto);
+	public void deleteMember(String userId) throws Exception {
+		memberMapper.deleteMember(userId);
 	}
 
 	@Override
@@ -40,4 +48,5 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return memberMapper.login(memberDto);
 	}
+
 }
