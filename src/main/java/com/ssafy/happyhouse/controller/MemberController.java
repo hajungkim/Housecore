@@ -1,6 +1,7 @@
 package com.ssafy.happyhouse.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.happyhouse.repository.dto.MemberDto;
-import com.ssafy.happyhouse.repository.dto.NoticeDto;
 import com.ssafy.happyhouse.service.JwtService;
 import com.ssafy.happyhouse.service.MemberService;
 
@@ -61,6 +60,12 @@ public class MemberController {
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
 	
+	@ApiOperation(value = "모든 회원정보 가져오기")
+	@GetMapping
+	public ResponseEntity<List<MemberDto>> selectAll() throws Exception {
+		return new ResponseEntity<List<MemberDto>>(memberService.selectAllMember(), HttpStatus.OK);
+	}
+
 	@ApiOperation(value = "아이디로 회원정보 가져오기")
 	@GetMapping("{userId}")
 	public ResponseEntity<MemberDto> select(@PathVariable("userId") String userId) throws Exception {
@@ -80,9 +85,9 @@ public class MemberController {
 	}
 	
 	@ApiOperation(value = "회원정보 삭제(탈퇴)")
-	@DeleteMapping
-	public void delete(@RequestBody MemberDto memberDto) throws Exception {
-		memberService.deleteMember(memberDto);
+	@DeleteMapping("{userId}")
+	public void delete(@PathVariable("userId") String userId) throws Exception {
+		memberService.deleteMember(userId);
 	}
 
 }
